@@ -38,18 +38,24 @@ print(response.text)
 
 '''
 
-response = requests.get('http://httpbin.org/get')
+response = requests.get('http://httpbin.org/get')            #解析JSON
 print(type(response.text))
 print(response.json())
 print(json.loads(response.text))
 print(type(response.json()))
 
 
-response = requests.get("https://github.com/favicon.ico")
+response = requests.get("https://github.com/favicon.ico")    #获取二进制图片
 print(type(response.text),type(response.content))
 print(response.text)
 print(response.content)
 
 
+response = requests.get("https://github.com/favicon.ico")
+with open('favicon.ico','wb') as f:
+	f.write(response.content)
+	f.close()
 
 
+response = requests.get("https://www.zhihu.com/explore")              #添加headers
+print(response.text)
