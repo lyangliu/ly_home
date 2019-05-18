@@ -45,4 +45,11 @@ print(json.loads(response.text))
 print(type(response.json()))
 
 
+response = requests.get("https://github.com/favicon.ico")
+print(type(response.text),type(response.content))
+print(response.text)
+print(response.content)
+
+
+
 
